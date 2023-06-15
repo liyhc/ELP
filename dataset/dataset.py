@@ -59,7 +59,7 @@ class dataset(data.Dataset):
         if self.test:
             img = self.totensor(img)
             if self.dataset == 'CUB': 
-                label = self.labels[item] 
+                label = self.labels[item] - 1
             else: 
                 label = self.labels[item] 
             return img, label, self.paths[item]
@@ -67,7 +67,7 @@ class dataset(data.Dataset):
 
         img_unswap = self.totensor(img_unswap)
         if self.dataset == 'CUB': 
-            label = self.labels[item] 
+            label = self.labels[item] - 1
         else: 
             label = self.labels[item] 
         return img_unswap, label, self.paths[item]
